@@ -87,22 +87,25 @@ struct priority_queue {
     }
 
     node* pop() 
-    {
-        if (!head) { return nullptr; }
+{
+    if (!tail) { return nullptr; }
 
-        node* temp = head;
-        head = head->next;
-        if (head) 
-        {
-            head->prev = nullptr;
-        }
-        else 
-        {
-            tail = nullptr;
-        }
-        temp->next = nullptr;
-        return temp;
+    node* temp = tail;
+
+    if (head == tail) 
+    {
+        head = nullptr;
+        tail = nullptr;
+    } 
+    else 
+    {
+        tail = tail->prev;
+        tail->next = nullptr;
     }
+
+    temp->prev = nullptr;
+    return temp;
+}
 
     uint32_t get_max_prior() const { return max_prior; }
 
