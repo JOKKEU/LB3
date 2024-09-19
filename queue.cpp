@@ -183,7 +183,7 @@ struct node* pop() {
 	return last;
 }
 
-void deque()
+void queue()
 {
 	while (true)
 	{
@@ -232,6 +232,6 @@ void deque()
 
 int main()
 {
-	deque();
+	queue();
 	exit(0);
 }
